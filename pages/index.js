@@ -7,16 +7,17 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+    <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white pt-10 lg:pt-11 pb-22 lg:pb-20">
       <Head>
         <title>My Portfolio</title>
       </Head>
       <Navbar />
 
-      <div className="flex flex-col items-center justify-center py-20 text-center">
-        <div className="flex items-center">
+      {/* Hero Section */}
+      <div className="flex flex-col items-center justify-center py-16 text-center px-6">
+        <div className="flex flex-col sm:flex-row items-center sm:space-x-3">
           <motion.h1
-            className="text-5xl font-bold"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -24,7 +25,7 @@ export default function Home() {
             Hi, I'm Charan Deepak K
           </motion.h1>
           <motion.div
-            className="ml-3 text-5xl"
+            className="mt-2 sm:mt-0 text-4xl sm:text-5xl"
             animate={{ scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
           >
@@ -33,7 +34,7 @@ export default function Home() {
         </div>
 
         <motion.p
-          className="text-2xl mt-4"
+          className="text-lg sm:text-2xl mt-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -42,7 +43,7 @@ export default function Home() {
         </motion.p>
 
         <motion.p
-          className="mt-3 max-w-2xl"
+          className="mt-3 max-w-lg sm:max-w-2xl text-sm sm:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
@@ -50,40 +51,31 @@ export default function Home() {
           I build high-performance web applications with modern technologies. Let's create something amazing together.
         </motion.p>
 
-        {/* Animated Button Containers */}
-        <div className="mt-6 flex space-x-4">
-          <motion.div
-            className="p-2 rounded-lg bg-white/10 shadow-lg hover:shadow-xl transition-all duration-300"
+        {/* Buttons */}
+        <div className="mt-6 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+          <motion.a
+            href="/projects"
+            className="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition-all duration-300 text-sm sm:text-base"
             whileHover={{ scale: 1.05 }}
           >
-            <motion.a
-              href="/projects"
-              className="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold shadow-md hover:bg-gray-200"
-              whileHover={{ scale: 1.1 }}
-            >
-              View Projects
-            </motion.a>
-          </motion.div>
+            View Projects
+          </motion.a>
 
-          <motion.div
-            className="p-2 rounded-lg bg-white/10 shadow-lg hover:shadow-xl transition-all duration-300"
+          <motion.a
+            href="/contact"
+            className="px-6 py-3 bg-transparent border-2 border-white rounded-lg font-semibold shadow-md hover:bg-white hover:text-blue-600 transition-all duration-300 text-sm sm:text-base"
             whileHover={{ scale: 1.05 }}
           >
-            <motion.a
-              href="/contact"
-              className="px-6 py-3 bg-transparent border-2 border-white rounded-lg font-semibold shadow-md hover:bg-white hover:text-blue-600"
-              whileHover={{ scale: 1.1 }}
-            >
-              Contact Me
-            </motion.a>
-          </motion.div>
+            Contact Me
+          </motion.a>
         </div>
       </div>
 
-      <div className="flex flex-col items-center">
-        <h2 className="text-3xl font-semibold mb-4">Tech Stack</h2>
+      {/* Tech Stack Section */}
+      <div className="flex flex-col items-center px-6">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Tech Stack</h2>
         <motion.div
-          className="flex space-x-6 text-6xl"
+          className="grid grid-cols-3 sm:grid-cols-4 lg:flex lg:space-x-6 text-4xl sm:text-6xl gap-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
@@ -102,3 +94,4 @@ export default function Home() {
     </div>
   );
 }
+

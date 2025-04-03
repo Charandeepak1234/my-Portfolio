@@ -45,7 +45,9 @@ export default function Projects() {
       
       <div className="relative p-6 pt-24 container mx-auto z-10">
         <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">My Projects</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div 
               key={index} 
@@ -54,19 +56,23 @@ export default function Projects() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <img src={project.image} alt={project.name} className="w-full h-48 object-cover rounded-lg" />
+              <img src={project.image} alt={project.name} className="w-full h-40 sm:h-48 object-cover rounded-lg" />
               <h2 className="text-2xl font-bold mt-4 text-blue-600">{project.name}</h2>
               <p className="text-gray-700 mt-2">{project.description}</p>
-              <div className="flex justify-between mt-4">
-                <a href={project.demo} className="text-white bg-blue-600 px-4 py-2 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition">Live Demo</a>
-                <a href={project.github} className="text-white bg-gray-800 px-4 py-2 rounded-lg font-semibold shadow-md hover:bg-gray-900 transition">GitHub</a>
+              
+              {/* Buttons Section */}
+              <div className="flex flex-col sm:flex-row justify-center sm:justify-between mt-4 space-y-3 sm:space-y-0">
+                <a href={project.demo} target="_blank" className="text-white bg-blue-600 px-4 py-2 rounded-lg font-semibold shadow-md hover:bg-blue-700 transition text-center w-full sm:w-auto">
+                  Live Demo
+                </a>
+                <a href={project.github} target="_blank" className="text-white bg-gray-800 px-4 py-2 rounded-lg font-semibold shadow-md hover:bg-gray-900 transition text-center w-full sm:w-auto">
+                  GitHub
+                </a>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-      
-      
     </div>
   );
 }

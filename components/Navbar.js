@@ -1,52 +1,64 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { useRouter } from "next/router";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
-  // Close menu when a link is clicked
   const handleNavLinkClick = () => setIsOpen(false);
 
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Projects" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
-    <nav className="p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white fixed top-0 w-full shadow-lg z-50">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">My Portfolio</h1>
+    <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg z-50">
+      <div className="container mx-auto flex justify-between items-center px-6 py-4 lg:px-12">
+        {/* Logo */}
+        <Link href="/" className="text-2xl font-bold">
+          My_Portfolio
+        </Link>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white text-3xl">
-            {isOpen ? <FiX /> : <FiMenu />}
-          </button>
-        </div>
-
-        {/* Navigation Links */}
-        <ul
-          className={`absolute md:static top-16 left-0 w-full bg-blue-600 md:bg-transparent text-center md:flex md:space-x-6 md:w-auto transition-all duration-300 ease-in-out transform ${
-            isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 md:opacity-100 md:translate-y-0"
-          }`}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden text-white text-3xl focus:outline-none"
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
         >
-          <li className="py-2 md:py-0">
-            <Link href="/" className="hover:text-gray-300 text-lg font-semibold" onClick={handleNavLinkClick}>
-              Home
-            </Link>
-          </li>
-          <li className="py-2 md:py-0">
-            <Link href="/projects" className="hover:text-gray-300 text-lg font-semibold" onClick={handleNavLinkClick}>
-              Projects
-            </Link>
-          </li>
-          <li className="py-2 md:py-0">
-            <Link href="/about" className="hover:text-gray-300 text-lg font-semibold" onClick={handleNavLinkClick}>
-              About
-            </Link>
-          </li>
-          <li className="py-2 md:py-0">
-            <Link href="/contact" className="hover:text-gray-300 text-lg font-semibold" onClick={handleNavLinkClick}>
-              Contact
-            </Link>
-          </li>
-        </ul>
+          {isOpen ? <FiX /> : <FiMenu />}
+        </button>
+
+        {/* Navigation Links (Desktop & Mobile) */}
+        <div
+          id="mobile-menu"
+          className={`${
+            isOpen ? "block" : "hidden"
+          } absolute top-16 left-0 w-full bg-blue-700 lg:bg-transparent lg:static lg:flex lg:items-center lg:justify-end transition-all duration-300 ease-in-out`}
+        >
+          <ul className="flex flex-col lg:flex-row lg:gap-8 text-lg font-semibold">
+            {navLinks.map(({ href, label }) => (
+              <li key={href} className="py-3 lg:py-0 text-center">
+                <Link
+                  href={href}
+                  onClick={handleNavLinkClick}
+                  className={`block px-6 lg:p-0 hover:text-gray-300 transition-colors duration-200 ${
+                    router.pathname === href
+                      ? "text-gray-300 border-b-2 border-white lg:border-none"
+                      : ""
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
   );
