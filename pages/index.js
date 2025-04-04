@@ -33,13 +33,14 @@ export default function Home() {
           </motion.div>
         </div>
 
+        {/* Tagline */}
         <motion.p
-          className="text-lg sm:text-2xl mt-4"
+          className="text-lg sm:text-2xl mt-4 font-semibold"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          Full-Stack Developer (Next.js + Prisma + SQL) | Passionate Coder
+          Building Scalable Web Apps with Next.js, Prisma & SQL.
         </motion.p>
 
         <motion.p
@@ -48,7 +49,8 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          I build high-performance web applications with modern technologies. Let's create something amazing together.
+          I build high-performance web applications with modern technologies. 
+          Let's create something amazing together.
         </motion.p>
 
         {/* Buttons */}
@@ -58,15 +60,15 @@ export default function Home() {
             className="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold shadow-md hover:bg-gray-200 transition-all duration-300 text-sm sm:text-base"
             whileHover={{ scale: 1.05 }}
           >
-            View Projects
+            See My Work
           </motion.a>
 
           <motion.a
             href="/contact"
-            className="px-6 py-3 bg-transparent border-2 border-white rounded-lg font-semibold shadow-md hover:bg-white hover:text-blue-600 transition-all duration-300 text-sm sm:text-base"
+            className="px-6 py-3 bg-yellow-400 text-gray-900 rounded-lg font-semibold shadow-md hover:bg-yellow-500 transition-all duration-300 text-sm sm:text-base"
             whileHover={{ scale: 1.05 }}
           >
-            Contact Me
+            Hire Me
           </motion.a>
         </div>
       </div>
@@ -94,4 +96,3 @@ export default function Home() {
     </div>
   );
 }
-
