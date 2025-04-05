@@ -49,7 +49,7 @@ export default function Contact() {
           Upwork: <a href="https://www.upwork.com/freelancers/~yourprofile" target="_blank" className="text-green-500 font-semibold">Hire Me on Upwork</a>
         </p>
         <p className="text-lg mb-4">
-          GitHub: <a href="https://github.com/Charandeepak1234" target="_blank" className="text-orange-500 font-semibold">GitHub Profile</a>
+          GitHub: <a href="" target="_blank" className="text-orange-500 font-semibold">GitHub Profile</a>
         </p>
         <p className="text-lg mb-4">
           WhatsApp: <a href="https://wa.me/916281268887" target="_blank" className="text-green-400 font-semibold">Chat on WhatsApp</a>
