@@ -13,7 +13,7 @@ const projects = [
   },
   {
     name: "Speed Typo",
-    description: "A typing speed test app built with Next.js, tracking WPM, CPM, and errors, with a leaderboard and real-time feedback.",
+    description: "A typing speed test app built with React.js, tracking WPM, CPM, and errors, with a leaderboard and real-time feedback.",
     image: "/images/speed-typo.png",
     github: "",
     demo: "https://speed-typo-seven.vercel.app/",
